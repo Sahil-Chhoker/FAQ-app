@@ -149,5 +149,5 @@ python faq_system/manage.py test
 
 ## Assumptions Made
 1. CKEditor 5 is used along with `django_ckeditor_5` because `ckeditor4` was found vurnerable.
-2. 
+
 3. There is no way of translating other languages into English, therefore all the questions and answers must be written in English only.
