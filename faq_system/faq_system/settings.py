@@ -16,8 +16,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Security settings
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 REDIS_URL = os.getenv("REDIS_URL")
-DEBUG = True
-ALLOWED_HOSTS = []
+DEBUG = False
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 INSTALLED_APPS = [
