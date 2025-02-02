@@ -1,0 +1,22 @@
+[flake8]
+max-line-length = 91
+inline-quotes = double
+multiline-quotes = double
+docstring-quotes = double
+extend-ignore = 
+    E203,
+    W503,
+    W504,
+    E402 
+exclude = 
+    .git,
+    __pycache__,
+    migrations,
+    build,
+    dist,
+    *.egg-info,
+    venv,
+    env,
+    */settings/*.py
+import-order-style = google
+application-import-names = faq_system

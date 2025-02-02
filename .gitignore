@@ -70,3 +70,7 @@ venv.bak/
 
 # PyPI configuration file
 .pypirc
+
+node_modules/
+*.pyc
+.vscode/
