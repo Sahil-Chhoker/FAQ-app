@@ -1,0 +1,74 @@
+/* Light mode styles (default) */
+html[data-theme="light"] .ck-editor__editable {
+    color: #000 !important;
+    background-color: #fff !important;
+    caret-color: #000;
+}
+
+html[data-theme="light"] .ck-editor__editable.ck-placeholder::before {
+    color: #666 !important;
+}
+
+html[data-theme="light"] .ck.ck-editor__main {
+    background: #fff !important;
+}
+
+html[data-theme="light"] .ck.ck-toolbar {
+    background: #f0f0f0 !important;
+    border-color: #c4c4c4 !important;
+}
+
+html[data-theme="light"] .document-editor {
+    color: #000;
+    background: #fff;
+    padding: 10px;
+}
+
+html[data-theme="light"] .ck.ck-button {
+    color: #000 !important;
+}
+
+html[data-theme="light"] .ck.ck-button:hover {
+    background: #e3e3e3 !important;
+}
+
+/* Dark + Auto mode styles */
+html[data-theme="dark"] .ck-editor__editable,
+html[data-theme="auto"] .ck-editor__editable {
+    color: #fff !important;
+    background-color: #1a1a1a !important;
+    caret-color: #fff;
+}
+
+html[data-theme="dark"] .ck-editor__editable.ck-placeholder::before,
+html[data-theme="auto"] .ck-editor__editable.ck-placeholder::before {
+    color: #888 !important;
+}
+
+html[data-theme="dark"] .ck.ck-editor__main,
+html[data-theme="auto"] .ck.ck-editor__main {
+    background: #1a1a1a !important;
+}
+
+html[data-theme="dark"] .ck.ck-toolbar,
+html[data-theme="auto"] .ck.ck-toolbar {
+    background: #2d2d2d !important;
+    border-color: #404040 !important;
+}
+
+html[data-theme="dark"] .document-editor,
+html[data-theme="auto"] .document-editor {
+    color: #fff;
+    background: #1a1a1a;
+    padding: 10px;
+}
+
+html[data-theme="dark"] .ck.ck-button,
+html[data-theme="auto"] .ck.ck-button {
+    color: #fff !important;
+}
+
+html[data-theme="dark"] .ck.ck-button:hover,
+html[data-theme="auto"] .ck.ck-button:hover {
+    background: #404040 !important;
+}
