@@ -1,0 +1,74 @@
+{# templates/faq/faq_list.html #}
+{% extends "base.html" %}
+
+{% block title %}FAQ List{% endblock title %}
+
+{% block content %}
+<div class="bg-white shadow rounded-lg">
+    <div class="p-6">
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-2xl font-bold">Frequently Asked Questions</h1>
+            <div class="flex space-x-4">
+                {% if user.is_authenticated %}
+                <a href="{% url 'faq_create' %}" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">Add FAQ</a>
+                {% endif %}
+                <select id="languageSelect" class="rounded border-gray-300" onchange="changeLanguage(this.value)">
+                    {% for code, name in available_languages %}
+                    <option value="{{ code }}" {% if current_lang == code %}selected{% endif %}>{{ name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <div id="faqList" class="space-y-6">
+            {% include "faqs/faq_content.html" %}
+        </div>
+    </div>
+
+    <div id="loadingIndicator" class="hidden">
+        <div class="flex justify-center items-center py-4">
+            <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500"></div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block extra_js %}
+<script>
+    function changeLanguage(lang) {
+        // Show loading indicator
+        const loadingIndicator = document.getElementById('loadingIndicator');
+        const faqList = document.getElementById('faqList');
+        
+        loadingIndicator.classList.remove('hidden');
+        faqList.classList.add('opacity-50');
+
+        window.location.href = `?lang=${lang}`;
+    }
+
+    function refreshContent() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const currentLang = urlParams.get('lang') || 'en';
+        
+        fetch(window.location.pathname + '?lang=' + currentLang)
+            .then(response => response.text())
+            .then(html => {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                const newContent = doc.getElementById('faqList').innerHTML;
+                document.getElementById('faqList').innerHTML = newContent;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Failed to refresh content. Please reload the page.');
+            });
+    }
+
+    // Refresh content after returning from edit
+    document.addEventListener('DOMContentLoaded', () => {
+        if (document.referrer.includes('/edit/')) {
+            refreshContent();
+        }
+    });
+</script>
+{% endblock extra_js %}
