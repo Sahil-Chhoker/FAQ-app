@@ -16,7 +16,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Security settings
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 REDIS_URL = os.getenv("REDIS_URL")
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ["*"]
 
 # Application definition
@@ -152,7 +152,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # File handling settings
-STATIC_URL = "static/"
+STATIC_URL = "staticfiles/"
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 MEDIA_URL = "media/"
