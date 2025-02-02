@@ -19,8 +19,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy project
 COPY . .
 
+# Copy .env
+COPY .env .env
+
 # Run migrations and collect static files
 RUN python faq_system/manage.py collectstatic --noinput
 
 # Command to run on container start
-CMD ["gunicorn", "faq_system.wsgi:application", "--bind", "0.0.0.0:8000"]
+CMD ["python", "faq_system/manage.py", "runserver", "0.0.0.0:8000"]
