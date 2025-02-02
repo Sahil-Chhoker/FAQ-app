@@ -1,0 +1,8 @@
+.field-preview_answer {
+    max-width: 300px;
+    overflow: hidden;
+}
+
+.cke_chrome {
+    width: 100% !important;
+}
