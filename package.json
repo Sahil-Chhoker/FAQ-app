@@ -1,14 +1,15 @@
 {
     "scripts": {
-      "lint:js": "eslint ./static/js/",
-      "lint:js:fix": "eslint ./static/js/ --fix",
-      "lint:python": "flake8",
-      "format:autopep8": "autopep8 --in-place --recursive .",
-      "format:black": "black .",
-      "format:isort": "isort .",
-      "format:python": "npm run format:isort && npm run format:black",
-      "lint": "npm run lint:js && npm run lint:python",
-      "lint:fix": "npm run format:python && npm run lint:python"
+        "lint:js": "eslint ./static/js/",
+        "lint:js:fix": "eslint ./static/js/ --fix",
+        "lint:python": "flake8",
+        "format:autopep8": "autopep8 --in-place --recursive .",
+        "format:black": "black .",
+        "format:python": "npm run format:isort && npm run format:black",
+        "lint": "npm run lint:js && npm run lint:python",
+        "lint:fix": "npm run format:python && npm run lint:python"
+    },
+    "dependencies": {
+        "eslint": "^9.19.0"
     }
-  }
-  
+}
